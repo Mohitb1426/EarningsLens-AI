@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base font size optimization for 100% zoom */
+html {
+  font-size: 14px; /* Reduced from default 16px for better spacing */
+}
+
+@media (min-width: 1440px) {
+  html {
+    font-size: 15px; /* Slightly larger on big screens */
+  }
+}
+
+/* Smooth scrolling */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Better font rendering */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+@layer base {
+  body {
+    @apply bg-white text-gray-900 antialiased;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  }
+
+  * {
+    @apply scroll-smooth;
+  }
+}
+
+@layer utilities {
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/* Custom Scrollbar - ChatGPT Style */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400;
+}
+
+/* Markdown Content Base Styles */
+.markdown-content {
+  color: #cbd5e1; /* slate-300 - ensure all text is visible */
+}
+
+.markdown-content * {
+  color: inherit;
+}
+
+/* Markdown List Bullets Fix */
+.markdown-content ul {
+  list-style-type: disc !important;
+  list-style-position: inside !important;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+
+.markdown-content ol {
+  list-style-type: decimal !important;
+  list-style-position: inside !important;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+
+.markdown-content ul li,
+.markdown-content ol li {
+  display: list-item !important;
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+.markdown-content ul li::marker {
+  color: #60a5fa !important; /* blue-400 for better visibility */
+}
+
+.markdown-content ol li::marker {
+  color: #60a5fa !important; /* blue-400 */
+  font-weight: 600 !important;
+}
+
+/* Textarea Auto-resize */
+textarea {
+  field-sizing: content;
+}
+
+/* Button Animations */
+button {
+  @apply transition-all duration-150;
+}
+
+button:active:not(:disabled) {
+  @apply scale-95;
+}
+
+/* Focus Styles */
+*:focus-visible {
+  @apply outline-none ring-2 ring-blue-500 ring-offset-2;
+}
+
+/* Smooth Transitions */
+.transition-smooth {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Loading Animation */
+@keyframes pulse-scale {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+.animate-pulse-scale {
+  animation: pulse-scale 1s ease-in-out infinite;
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Skeleton Shimmer */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.skeleton {
+  animation: shimmer 2s infinite linear;
+  background: linear-gradient(to right, #f0f0f0 4%, #e0e0e0 25%, #f0f0f0 36%);
+  background-size: 1000px 100%;
+}

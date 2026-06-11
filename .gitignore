@@ -1,0 +1,76 @@
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+
+# Environment variables
+.env
+.env.*
+!.env.example
+*.env
+backend/.env
+frontend/.env
+pipeline/.env
+
+# Build outputs
+dist/
+build/
+*.log
+
+# Database
+chroma-data/
+pipeline/data/chroma-db/
+pipeline/data/chromadb/
+*.db
+*.sqlite
+*.db-shm
+*.db-wal
+earningslens.db
+
+# PDF files (too large for git)
+pipeline/data/pdfs/*.pdf
+pipeline/data/pdfs/**/*.pdf
+
+# Parsed data (generated files)
+pipeline/data/parsed/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Production
+.vercel
+.railway
+
+# Test coverage
+coverage/
+
+# Python virtual environments
+venv/
+env/
+ENV/
+backend/venv/
+pipeline/venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Sensitive files
+*credentials*
+*secrets*
+*.key
+*.pem
+*.p12
+config.json
+
+# Misc
+*.bak
+*.tmp

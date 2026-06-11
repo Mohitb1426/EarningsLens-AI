@@ -1,0 +1,34 @@
+{
+  "indexing": {
+    "chunkSize": 500,
+    "chunkOverlap": 100,
+    "topK": 10,
+    "testQueries": [
+      "What was TCS revenue in Q4 FY2024?",
+      "What was Infosys profit in Q1 FY2024?",
+      "Compare TCS and Wipro revenue growth"
+    ]
+  },
+  "retrieval": {
+    "defaultTopK": 10,
+    "minSimilarityScore": 0.3,
+    "rerank": false
+  },
+  "models": {
+    "embedding": {
+      "provider": "voyage",
+      "model": "voyage-2",
+      "dimensions": 1024
+    },
+    "llm": {
+      "provider": "bedrock",
+      "model": "us.anthropic.claude-sonnet-4-5-20250929-v1:0",
+      "maxTokens": 2048,
+      "temperature": 0
+    }
+  },
+  "metadata": {
+    "enrichChunks": true,
+    "metadataTemplate": "Company: {company}, Quarter: {quarter}, Year: {year}"
+  }
+}
